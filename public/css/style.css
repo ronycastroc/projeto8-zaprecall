@@ -2,6 +2,7 @@
 
 body {
     background-color: #FB6B6B;
+    font-family: 'Recursive', sans-serif;
 }
 
 * {
@@ -42,7 +43,7 @@ h1 {
 }
 
 .initial p {
-    font-family: 'Recursive', sans-serif;
+    
     color: #D70900;
     font-weight: 400;
     font-size: 18px;
@@ -53,14 +54,17 @@ h1 {
 }
 
 .content {
-    background-color: chocolate;
-    width: 375px;
-    height: 500px;
+    width: 90%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .topo {
-    background-color: red;
+    
     width: 100%;
     height: 153px;
     display: flex;
@@ -76,4 +80,46 @@ h1 {
 
 .topo h1 {
     margin-left: 10px;
+}
+
+.footer {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.questions {
+    margin-top: 30px;
+    width: 80%;
+    height: 80%;
+}
+
+.question {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+}
+
+.question p {
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333333;
+}
+
+.question ion-icon {
+    margin-right: 15px;
+    font-size: 23px;
 }

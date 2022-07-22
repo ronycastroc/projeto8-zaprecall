@@ -9,7 +9,7 @@ export default function Content() {
                     <h1>ZapRecall</h1>
                 </div>
 
-                <Questions />
+                <Questions />              
                 
             </div>
 

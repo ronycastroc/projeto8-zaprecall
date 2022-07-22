@@ -1,9 +1,26 @@
+import React from "react"
+import TurnCard from "./TurnCard"
+
 function Question({number, question, answer}) {
+    const [card, setCard] = React.useState(true)
+    const [click, setClick] = React.useState('question-p')
+    const [name, setName] = React.useState('play-outline')
+    const [color, setColor] = React.useState('')
+    
+
+    
     return (
-        <div className="question">
-            <p>Pergunta {number +1}</p>
-            <ion-icon name="play-outline"></ion-icon>
-        </div>
+        <>
+            {card ? (
+            <div className="question">
+                <p className={click}>Pergunta {number +1}</p>
+                <ion-icon class={color} name={name} onClick={() => setCard(!card)}></ion-icon>
+            </div>
+            ) : 
+            
+            (<TurnCard question={question} answer={answer} setCard={setCard} setClick={setClick} setName={setName} setColor={setColor}/>)}
+        </>
+        
     )
 }
 
@@ -15,26 +32,57 @@ const zapcard = [
 
     {
         question: 'O React é __ ',
-        answer: 'uma biblioteca JavaScript para construção de interfaces'
+        answer: 'Uma biblioteca JavaScript para construção de interfaces'
     },
 
     {
         question: 'Componentes devem iniciar com __ ',
-        answer: 'letra maiúscula'
+        answer: 'Letra maiúscula'
     },
 
     {
         question: 'Podemos colocar __ dentro do JSX',
-        answer: 'expressões'
-    }
+        answer: 'Expressões'
+    },
+
+    {
+        question: 'O ReactDOM nos ajuda __',
+        answer: 'Interagindo com a DOM para colocar componentes React na mesma'
+    },
+
+    {
+        question: 'Usamos o npm para __',
+        answer: 'Gerenciar os pacotes necessários e suas dependências'
+    },
+
+    {
+        question: 'Usamos props para __ ',
+        answer: 'Passar diferentes informações para componentes '
+    },
+
+    {
+        question: 'Usamos estado (state) para __',
+        answer: 'Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente'
+    },
 ]
 
 export default function Questions() {
+        
+    zapcard.sort(comparador)
+    function comparador() {
+        return Math.random() - 0.5;
+    }
+    
     return (
+            
         <div className="questions">
-            {zapcard.map((value, index) => (
-                <Question key={index} number={index} question={value.question} answer={value.answer}/>
-            ))}
+            {zapcard.map((value, index) => {
+                if(index < 4) {
+                    return (
+                        <Question key={index} number={index} question={value.question} answer={value.answer}/>
+                    )
+                }
+            })}
         </div>
     )
 }

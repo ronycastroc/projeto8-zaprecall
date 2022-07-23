@@ -8,8 +8,8 @@ export default function App() {
     return (
         <>
             {
-            tela ? (<Content tela={tela} setTela={setTela}/>) : 
-            (<Initial />) // ordem mudada content e initial para trabalhar melhor
+            tela ? (<Initial tela={tela} setTela={setTela}/>) : 
+            (<Content />) 
             }              
         </>       
     )

@@ -1,10 +1,13 @@
-export default function Congrat({counter, setCounter, accept, setAccept}) {
+import party from '../assets/img/party.png'
+import sad from '../assets/img/sad.png'
+
+export default function Congrat({counter, accept}) {
    
     if (counter === 4 && accept === 4 ) {
         return (        
             <>      
                  <div className="congrat">
-                     <img src="./img/party.png" alt="party" />
+                     <img src={party} alt="party" />
                      <h2>Parabéns!</h2>
                  </div>
  
@@ -20,7 +23,7 @@ export default function Congrat({counter, setCounter, accept, setAccept}) {
         return (
             <>    
                 <div className="congrat">
-                     <img src="./img/sad.png" alt="party" />
+                     <img src={sad} alt="party" />
                      <h2>Putz...</h2>
                 </div>
  
@@ -34,7 +37,7 @@ export default function Congrat({counter, setCounter, accept, setAccept}) {
     else {
         return (
             <>    
-               <span>{counter}/4 CONCLUÍDOS</span>  
+               <span>{counter}/4 CONCLUÍDOS</span>                 
             </>                  
         )
     }

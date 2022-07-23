@@ -1,9 +1,9 @@
 import React from "react"
+import seta from '../assets/img/setinha.png'
 
-export default function TurnCard({question, answer, setCard, setClick, setName, setColor, counter, setCounter, accept, setAccept}) {
+export default function TurnCard({question, answer, setCard, setClick, setName, setColor, counter, setCounter, accept, setAccept, result, setResult}) {
     
-    const [turncard, setTurncard] = React.useState(true)
-    
+    const [turncard, setTurncard] = React.useState(true)    
 
     return (
         <div className="turncard">
@@ -11,7 +11,7 @@ export default function TurnCard({question, answer, setCard, setClick, setName, 
             {turncard ? (
             <>
                 <p>{question}</p>
-                <img src="./img/setinha.png" alt="setinha" onClick={() => setTurncard(!true)}/>
+                <img src={seta} alt="setinha" onClick={() => setTurncard(!true)}/>
             </>
             ) : 
 
@@ -25,7 +25,8 @@ export default function TurnCard({question, answer, setCard, setClick, setName, 
                         setName('close-circle')
                         setColor('red')
                         setCounter(counter + 1)
-                        
+                        const newResult = [...result, {name:'close-circle', color:'red'}]
+                        setResult(newResult)
                     }}>
                         <p>Não lembrei</p>
                     </div>
@@ -36,6 +37,8 @@ export default function TurnCard({question, answer, setCard, setClick, setName, 
                         setColor('orange')
                         setCounter(counter + 1)
                         setAccept(accept + 1)
+                        const newResult = [...result, {name: 'help-circle', color: 'orange'}]
+                        setResult(newResult)
                     }}>
                         <p>Quase lembrei</p>
                     </div>
@@ -46,6 +49,8 @@ export default function TurnCard({question, answer, setCard, setClick, setName, 
                         setColor('green')
                         setCounter(counter + 1)
                         setAccept(accept + 1)
+                        const newResult = [...result, {name: 'checkmark-circle', color: 'green'}]
+                        setResult(newResult)
                     }}>
                         <p>Zap!</p>
                     </div>

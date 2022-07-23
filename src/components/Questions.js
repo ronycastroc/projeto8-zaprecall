@@ -1,7 +1,7 @@
 import React from "react"
 import TurnCard from "./TurnCard"
 
-function Question({number, question, answer, counter, setCounter, accept, setAccept}) {
+function Question({number, question, answer, counter, setCounter, accept, setAccept, result, setResult}) {
     const [card, setCard] = React.useState(true)
     const [click, setClick] = React.useState('question-p')
     const [name, setName] = React.useState('play-outline')
@@ -18,7 +18,7 @@ function Question({number, question, answer, counter, setCounter, accept, setAcc
             </div>
             ) : 
             
-            (<TurnCard question={question} answer={answer} setCard={setCard} setClick={setClick} setName={setName} setColor={setColor} counter={counter} setCounter={setCounter} accept={accept} setAccept={setAccept}/>)}
+            (<TurnCard question={question} answer={answer} setCard={setCard} setClick={setClick} setName={setName} setColor={setColor} counter={counter} setCounter={setCounter} accept={accept} setAccept={setAccept} result={result} setResult={setResult}/>)}
         </>
         
     )
@@ -66,7 +66,7 @@ const zapcard = [
     },
 ]
 
-export default function Questions({counter, setCounter, accept, setAccept}) {
+export default function Questions({counter, setCounter, accept, setAccept, result, setResult}) {
         
     zapcard.sort(comparador)
     function comparador() {
@@ -79,12 +79,10 @@ export default function Questions({counter, setCounter, accept, setAccept}) {
             {zapcard.map((value, index) => {
                 if(index < 4) {
                     return (
-                        <Question key={index} number={index} question={value.question} answer={value.answer} counter={counter} setCounter={setCounter} accept={accept} setAccept={setAccept}/>
+                        <Question key={index} number={index} question={value.question} answer={value.answer} counter={counter} setCounter={setCounter} accept={accept} setAccept={setAccept} result={result} setResult={setResult}/>
                     )
                 }
-            })}
-
-        
+            })}       
         </div>
     )
 }
